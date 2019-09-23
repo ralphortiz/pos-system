@@ -7,17 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace POS_SYSTEM
 {
     public partial class frmLogin : Form
     {
-        SqlDataReader reader;
-        SqlCommand command;
+        MySqlDataReader reader;
+        MySqlCommand command;
         public static string user = "";
         public static string position = "";
         string connectionString;
+        private bool mouseDown;
+        private Point lastLocation;
+
+
         public frmLogin()
         {
             InitializeComponent();
@@ -25,26 +30,44 @@ namespace POS_SYSTEM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            connectionString = @"Server=RALPH\SQLEXPRESS; Database=loginDB; User ID=sa; Password=vickyjaneralph14";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            logIn();
+        }
+
+        private void login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                logIn();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logIn()
+        {
+            connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
                 try
                 {
-                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, TypeOfUser FROM tblLogin WHERE UserName = @Username AND PassWord = @Password";
-                    command = new SqlCommand(query, connection);
+                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position FROM tblLogin WHERE UserName = @Username AND PassWord = @Password";
+                    command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtPassword.Text);
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         user = reader["FullName"].ToString();
-                        position = reader["TypeOfUser"].ToString();
+                        position = reader["Position"].ToString();
                     }
                     reader.Close();
                     command.Dispose();
                     if (user == "")
-                    { 
+                    {
                         MessageBox.Show("Invalid login details", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUsername.Text = "";
                         txtPassword.Text = "";
@@ -67,9 +90,27 @@ namespace POS_SYSTEM
                 }
             }
         }
-        private void btnClose_Click(object sender, EventArgs e)
+
+        // ----------------- Form Move Implementation  (Drag Form Body) ------------------
+        private void form_MouseDown(object sender, MouseEventArgs e)
         {
-            Application.Exit();
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void form_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                this.Opacity = 0.8;
+                this.Update();
+            }
+        }
+        private void form_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+            this.Opacity = 1;
         }
     }
 }

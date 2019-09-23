@@ -8,3 +8,21 @@ C:\Users\Ralph\Desktop\POS SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\P
 C:\Users\Ralph\Desktop\POS SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.exe
 C:\Users\Ralph\Desktop\POS SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.pdb
 C:\Users\Ralph\Desktop\POS SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmMain.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\POS SYSTEM.exe.config
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.exe
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.pdb
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\POS SYSTEM.exe
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\POS SYSTEM.pdb
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.csprojResolveAssemblyReference.cache
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmLogin.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmMain.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.Properties.Resources.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.csproj.GenerateResource.Cache
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\Renci.SshNet.dll
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySql.Data.EntityFramework.xml
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.xml
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.xml
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.csproj.POS SYSTEM.exe.config
