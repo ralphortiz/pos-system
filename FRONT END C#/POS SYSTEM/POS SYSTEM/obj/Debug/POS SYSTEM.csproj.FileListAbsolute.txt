@@ -26,3 +26,5 @@ C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.xml
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.xml
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS SYSTEM.csproj.POS SYSTEM.exe.config
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmForgotPassword.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmChangePassword.resources

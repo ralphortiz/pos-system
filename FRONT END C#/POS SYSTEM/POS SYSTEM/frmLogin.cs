@@ -16,9 +16,12 @@ namespace POS_SYSTEM
     {
         MySqlDataReader reader;
         MySqlCommand command;
+        MySqlCommand cmd = new MySqlCommand();
         public static string user = "";
         public static string position = "";
-        string connectionString;
+        public static int LoginID;
+        public static string unamez = "";
+        public static string connectionString;
         private bool mouseDown;
         private Point lastLocation;
 
@@ -26,6 +29,8 @@ namespace POS_SYSTEM
         public frmLogin()
         {
             InitializeComponent();
+            txtUsername.Text = unamez;
+            txtUsername.SelectAll();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -46,31 +51,51 @@ namespace POS_SYSTEM
             Application.Exit();
         }
 
+
+
+
+        // ----------------------------------- Methods -----------------------------------
+
+
+
+
         private void logIn()
         {
+            unamez = txtUsername.Text;
             connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
+                //cmd.Connection = connection;
+                //cmd.CommandText = "DROP PROCEDURE IF EXISTS invalidLogin";
+                //cmd.ExecuteNonQuery();
+                //cmd.CommandText ="CREATE PROCEDURE invalidLogin(IN uname varchar(20), OUT logAttempt INT(3), OUT userIsEnabled TINYINT) BEGIN UPDATE tbllogin SET log_attempts = log_attempts + 1 WHERE tbllogin.username = uname;  IF (SELECT log_attempts FROM tbllogin WHERE tbllogin.username = uname) > 2 THEN UPDATE tbllogin SET isEnabled = 0 WHERE tbllogin.username = uname; SET userIsEnabled = 0; ELSE SET userIsEnabled = 1; END IF; SET logAttempt = (select log_attempts from tbllogin WHERE tbllogin.username = uname); END";
+                //cmd.ExecuteNonQuery();
                 try
                 {
-                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position FROM tblLogin WHERE UserName = @Username AND PassWord = @Password";
+                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, LoginID FROM tblLogin WHERE UserName = @Username AND PassWord = MD5(@Password)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtPassword.Text);
                     reader = command.ExecuteReader();
+
                     while (reader.Read())
                     {
                         user = reader["FullName"].ToString();
-                        position = reader["Position"].ToString();
+                        position = reader["Position"].ToString().ToUpper();
+                        LoginID = Convert.ToInt32(reader["LoginID"]);
                     }
                     reader.Close();
                     command.Dispose();
+
+
+
                     if (user == "")
                     {
                         MessageBox.Show("Invalid login details", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtUsername.Text = "";
+                        //txtUsername.Text = "";
                         txtPassword.Text = "";
+                        txtUsername.Focus();
                     }
                     else
                     {
@@ -90,6 +115,15 @@ namespace POS_SYSTEM
                 }
             }
         }
+
+        private void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            unamez = this.txtUsername.Text;
+            frmForgotPassword frmForgotPassword = new frmForgotPassword();
+            this.Hide();
+            frmForgotPassword.Show();
+        }
+
 
         // ----------------- Form Move Implementation  (Drag Form Body) ------------------
         private void form_MouseDown(object sender, MouseEventArgs e)
@@ -111,6 +145,11 @@ namespace POS_SYSTEM
         {
             mouseDown = false;
             this.Opacity = 1;
+        }
+
+        private void text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar != (char)Keys.Back && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
     }
 }
