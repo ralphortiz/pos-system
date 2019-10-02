@@ -41,9 +41,9 @@ namespace POS_SYSTEM
                 connection.Open();
                 try
                 {
-                    string query = "UPDATE tbllogin SET tempopw=(SELECT substring(MD5(RAND()), -4)) WHERE UserName=@Uname;"+
-                        "UPDATE tbllogin SET password=MD5(tempopw), isEnabled = 1, log_attempts = 0 WHERE UserName=@Uname;"+
-                        "SELECT tempopw, PassWord, UserName FROM tblLogin WHERE UserName = @Uname AND answer1 = @Answer1 OR answer2 = @Answer2; ";
+                    string query = "UPDATE " + DatabaseConnection.UsersTable + " SET tempopw=(SELECT substring(MD5(RAND()), -4)) WHERE username=@Uname;" +
+                        "UPDATE " + DatabaseConnection.UsersTable + " SET password=MD5(tempopw), isEnabled = 1, log_attempts = 0 WHERE username=@Uname;" +
+                        "SELECT tempopw, PassWord, username FROM " + DatabaseConnection.UsersTable + " WHERE username = @Uname AND answer1 = @Answer1 OR answer2 = @Answer2; ";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Uname", txtUsername.Text);
                     command.Parameters.AddWithValue("@Answer1", txtAnswer1.Text);
@@ -53,7 +53,7 @@ namespace POS_SYSTEM
                     while (reader.Read())
                     {
                         password = reader["tempopw"].ToString();
-                        uname = reader["UserName"].ToString();
+                        uname = reader["username"].ToString();
                     }
                     reader.Close();
                     command.Dispose();

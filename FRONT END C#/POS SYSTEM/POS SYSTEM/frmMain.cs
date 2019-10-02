@@ -16,7 +16,7 @@ namespace POS_SYSTEM
         string password = "x", hashedTempo = "z";
         string user = frmLogin.user.ToUpper();
         string position = frmLogin.position.ToUpperInvariant();
-        int LoginID = frmLogin.LoginID;
+        int loginid = frmLogin.loginid;
         MySqlDataReader reader;
         MySqlCommand command;
 
@@ -86,7 +86,6 @@ namespace POS_SYSTEM
                 TransactionHistory.History.RemoveAt(order);
                 TransactionHistory.priceTotal.RemoveAt(order);
                 Transact.Total = TransactionHistory.priceTotal.Sum();
-
                 updateDisplay();
             }
             catch
@@ -111,9 +110,9 @@ namespace POS_SYSTEM
                 connection.Open();
                 try
                 {
-                    string query = "SELECT password, MD5(tempopw) AS hashedTempo FROM tbllogin WHERE LoginID=@id;";
+                    string query = "SELECT password, MD5(tempopw) AS hashedTempo FROM " + DatabaseConnection.UsersTable + " WHERE loginid=@id;";
                     command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@id", LoginID);
+                    command.Parameters.AddWithValue("@id", loginid);
                     reader = command.ExecuteReader();
 
                     while (reader.Read())

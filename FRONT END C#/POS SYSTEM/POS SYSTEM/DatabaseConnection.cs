@@ -10,6 +10,9 @@ namespace POS_SYSTEM
 {
     public class DatabaseConnection
     {
-        public static string connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
+        public static string connectionString = @"server=localhost;database=dbPOS;uid=root;pwd=root";
+        public static string UsersTable = "tblUsers";
+        public static string ProductsTable = "tblProducts";
+        public static string AddonsTable = "tblAddons";
     }
 }

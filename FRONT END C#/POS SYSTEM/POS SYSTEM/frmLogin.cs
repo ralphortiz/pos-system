@@ -19,7 +19,7 @@ namespace POS_SYSTEM
         MySqlCommand cmd = new MySqlCommand();
         public static string user = "";
         public static string position = "";
-        public static int LoginID;
+        public static int loginid;
         public static string unamez = "";
 
 
@@ -62,14 +62,9 @@ namespace POS_SYSTEM
             using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
             {
                 connection.Open();
-                //cmd.Connection = connection;
-                //cmd.CommandText = "DROP PROCEDURE IF EXISTS invalidLogin";
-                //cmd.ExecuteNonQuery();
-                //cmd.CommandText ="CREATE PROCEDURE invalidLogin(IN uname varchar(20), OUT logAttempt INT(3), OUT userIsEnabled TINYINT) BEGIN UPDATE tbllogin SET log_attempts = log_attempts + 1 WHERE tbllogin.username = uname;  IF (SELECT log_attempts FROM tbllogin WHERE tbllogin.username = uname) > 2 THEN UPDATE tbllogin SET isEnabled = 0 WHERE tbllogin.username = uname; SET userIsEnabled = 0; ELSE SET userIsEnabled = 1; END IF; SET logAttempt = (select log_attempts from tbllogin WHERE tbllogin.username = uname); END";
-                //cmd.ExecuteNonQuery();
                 try
                 {
-                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, LoginID FROM tblLogin WHERE UserName = @Username AND PassWord = MD5(@Password)";
+                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, loginid FROM "+ DatabaseConnection.UsersTable + " WHERE username = @Username AND PassWord = MD5(@Password)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtPassword.Text);
@@ -79,7 +74,7 @@ namespace POS_SYSTEM
                     {
                         user = reader["FullName"].ToString();
                         position = reader["Position"].ToString().ToUpper();
-                        LoginID = Convert.ToInt32(reader["LoginID"]);
+                        loginid = Convert.ToInt32(reader["loginid"]);
                     }
                     reader.Close();
                     command.Dispose();
@@ -89,16 +84,11 @@ namespace POS_SYSTEM
                     if (user == "")
                     {
                         MessageBox.Show("Invalid login details", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //txtUsername.Text = "";
                         txtPassword.Text = "";
                         txtUsername.Focus();
                     }
                     else
                     {
-                        //lblDisplay.Text = result;
-                        //MessageBox.Show(user + " " + position);
-                        //lblUser.Text = user.ToUpper();
-                        //lblPosition.Text = position;
                         frmMain frmMain = new frmMain();
                         this.Hide();
                         frmMain.Show();

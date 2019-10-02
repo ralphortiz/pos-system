@@ -15,14 +15,11 @@ namespace POS_SYSTEM
         public double Quantity { get; set; }
         public double SizePrice { get; set; }
         public double SinkerPrice { get; set; }
-        public double  MilkteaPrice { get; set; }   
+        public double  MilkteaPrice { get; set; }
         public double ComputePrice()
         {
             MilkteaPrice =  ((SizePrice + SinkerPrice) * Quantity );
             return MilkteaPrice;
         }
-
-
-       
     }
 }

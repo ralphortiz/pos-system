@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace POS_SYSTEM
 {
@@ -19,6 +20,10 @@ namespace POS_SYSTEM
         double sinkers;
         double quantity = 0;
         public static string hist;
+
+        MySqlDataReader reader;
+        MySqlCommand command;
+
 
         public frmMilkTea(string MilkTeaName)
         {
@@ -107,11 +112,45 @@ namespace POS_SYSTEM
             this.Close();
         }
 
-        private void frmMilkTea_Load(object sender, EventArgs e)
+
+        /*
+        private void openDB()
         {
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
+            {
+                connection.Open();
+                try
+                {
+                    //string query = "SELECT name, size, price, isMilkTea, isMilkShake, isFrappe FROM " + DatabaseConnection.ProductsTable + " WHERE isAvailable = 1";
+                    //command = new MySqlCommand(query, connection);
+                    //reader = command.ExecuteReader();
 
-        }
+                    //while (reader.Read())
+                    //{
+                    //    password = reader["password"].ToString();
+                    //    hashedTempo = reader["hashedTempo"].ToString();
+                    //}
 
+                    //reader.Close();
+                    //command.Dispose();
+
+                    //if (password == hashedTempo)
+                    //{
+                    //    MessageBox.Show("It seems you haven't changed your password yet. Please change your password first.", "Temporary Password Detected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    frmChangePassword frmChangePassword = new frmChangePassword();
+                    //    frmChangePassword.ShowDialog();
+
+                    //}
+                    //else
+                    //{
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }*/
 
 
 

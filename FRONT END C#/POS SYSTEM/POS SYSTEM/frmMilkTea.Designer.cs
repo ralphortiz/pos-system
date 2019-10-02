@@ -86,7 +86,7 @@
             // 
             this.rbtnReg.AutoSize = true;
             this.rbtnReg.Location = new System.Drawing.Point(17, 27);
-            this.rbtnReg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnReg.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnReg.Name = "rbtnReg";
             this.rbtnReg.Size = new System.Drawing.Size(79, 21);
             this.rbtnReg.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             this.rbtnLarge.AutoSize = true;
             this.rbtnLarge.Location = new System.Drawing.Point(128, 27);
-            this.rbtnLarge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnLarge.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnLarge.Name = "rbtnLarge";
             this.rbtnLarge.Size = new System.Drawing.Size(66, 21);
             this.rbtnLarge.TabIndex = 5;
@@ -125,7 +125,7 @@
             // 
             this.rbtn0P.AutoSize = true;
             this.rbtn0P.Location = new System.Drawing.Point(13, 36);
-            this.rbtn0P.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtn0P.Margin = new System.Windows.Forms.Padding(4);
             this.rbtn0P.Name = "rbtn0P";
             this.rbtn0P.Size = new System.Drawing.Size(49, 21);
             this.rbtn0P.TabIndex = 12;
@@ -138,7 +138,7 @@
             // 
             this.rbtn25P.AutoSize = true;
             this.rbtn25P.Location = new System.Drawing.Point(73, 36);
-            this.rbtn25P.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtn25P.Margin = new System.Windows.Forms.Padding(4);
             this.rbtn25P.Name = "rbtn25P";
             this.rbtn25P.Size = new System.Drawing.Size(57, 21);
             this.rbtn25P.TabIndex = 13;
@@ -151,7 +151,7 @@
             // 
             this.rbtn50P.AutoSize = true;
             this.rbtn50P.Location = new System.Drawing.Point(141, 36);
-            this.rbtn50P.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtn50P.Margin = new System.Windows.Forms.Padding(4);
             this.rbtn50P.Name = "rbtn50P";
             this.rbtn50P.Size = new System.Drawing.Size(57, 21);
             this.rbtn50P.TabIndex = 14;
@@ -164,7 +164,7 @@
             // 
             this.rbtn75P.AutoSize = true;
             this.rbtn75P.Location = new System.Drawing.Point(209, 36);
-            this.rbtn75P.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtn75P.Margin = new System.Windows.Forms.Padding(4);
             this.rbtn75P.Name = "rbtn75P";
             this.rbtn75P.Size = new System.Drawing.Size(57, 21);
             this.rbtn75P.TabIndex = 15;
@@ -177,7 +177,7 @@
             // 
             this.rbtn100P.AutoSize = true;
             this.rbtn100P.Location = new System.Drawing.Point(269, 36);
-            this.rbtn100P.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtn100P.Margin = new System.Windows.Forms.Padding(4);
             this.rbtn100P.Name = "rbtn100P";
             this.rbtn100P.Size = new System.Drawing.Size(65, 21);
             this.rbtn100P.TabIndex = 16;
@@ -192,7 +192,7 @@
             this.panel1.Controls.Add(this.rbtnReg);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 60);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(223, 49);
             this.panel1.TabIndex = 71;
@@ -206,7 +206,7 @@
             this.panel2.Controls.Add(this.rbtn0P);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(16, 117);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(344, 60);
             this.panel2.TabIndex = 72;
@@ -216,7 +216,7 @@
             this.panel4.Controls.Add(this.numQuantity);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(17, 308);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(239, 66);
             this.panel4.TabIndex = 74;
@@ -224,7 +224,7 @@
             // numQuantity
             // 
             this.numQuantity.Location = new System.Drawing.Point(72, 28);
-            this.numQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numQuantity.Margin = new System.Windows.Forms.Padding(4);
             this.numQuantity.Maximum = new decimal(new int[] {
             10,
             0,
@@ -249,7 +249,7 @@
             // 
             this.cbRedBean.AutoSize = true;
             this.cbRedBean.Location = new System.Drawing.Point(160, 91);
-            this.cbRedBean.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbRedBean.Margin = new System.Windows.Forms.Padding(4);
             this.cbRedBean.Name = "cbRedBean";
             this.cbRedBean.Size = new System.Drawing.Size(93, 21);
             this.cbRedBean.TabIndex = 9;
@@ -261,7 +261,7 @@
             // 
             this.cbCoconutJelly.AutoSize = true;
             this.cbCoconutJelly.Location = new System.Drawing.Point(35, 91);
-            this.cbCoconutJelly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCoconutJelly.Margin = new System.Windows.Forms.Padding(4);
             this.cbCoconutJelly.Name = "cbCoconutJelly";
             this.cbCoconutJelly.Size = new System.Drawing.Size(114, 21);
             this.cbCoconutJelly.TabIndex = 7;
@@ -273,7 +273,7 @@
             // 
             this.cbCoffeeJelly.AutoSize = true;
             this.cbCoffeeJelly.Location = new System.Drawing.Point(35, 63);
-            this.cbCoffeeJelly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCoffeeJelly.Margin = new System.Windows.Forms.Padding(4);
             this.cbCoffeeJelly.Name = "cbCoffeeJelly";
             this.cbCoffeeJelly.Size = new System.Drawing.Size(103, 21);
             this.cbCoffeeJelly.TabIndex = 6;
@@ -285,7 +285,7 @@
             // 
             this.cbPudding.AutoSize = true;
             this.cbPudding.Location = new System.Drawing.Point(160, 34);
-            this.cbPudding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPudding.Margin = new System.Windows.Forms.Padding(4);
             this.cbPudding.Name = "cbPudding";
             this.cbPudding.Size = new System.Drawing.Size(82, 21);
             this.cbPudding.TabIndex = 8;
@@ -297,7 +297,7 @@
             // 
             this.cbPearl.AutoSize = true;
             this.cbPearl.Location = new System.Drawing.Point(35, 34);
-            this.cbPearl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPearl.Margin = new System.Windows.Forms.Padding(4);
             this.cbPearl.Name = "cbPearl";
             this.cbPearl.Size = new System.Drawing.Size(63, 21);
             this.cbPearl.TabIndex = 3;
@@ -320,7 +320,7 @@
             // 
             this.cbAloe.AutoSize = true;
             this.cbAloe.Location = new System.Drawing.Point(160, 63);
-            this.cbAloe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAloe.Margin = new System.Windows.Forms.Padding(4);
             this.cbAloe.Name = "cbAloe";
             this.cbAloe.Size = new System.Drawing.Size(58, 21);
             this.cbAloe.TabIndex = 10;
@@ -338,7 +338,7 @@
             this.panel3.Controls.Add(this.cbCoconutJelly);
             this.panel3.Controls.Add(this.cbRedBean);
             this.panel3.Location = new System.Drawing.Point(17, 183);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(265, 117);
             this.panel3.TabIndex = 75;
@@ -357,7 +357,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(272, 313);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 79;
@@ -390,11 +390,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMilkTea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMilkTea";
-            this.Load += new System.EventHandler(this.frmMilkTea_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.form_MouseUp);

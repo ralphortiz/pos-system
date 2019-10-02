@@ -17,7 +17,7 @@ namespace POS_SYSTEM
         MySqlDataReader reader;
         MySqlCommand command;
 
-        public static int LoginID = 0;
+        public static int loginid = 0;
 
 
         public frmChangePassword()
@@ -66,7 +66,7 @@ namespace POS_SYSTEM
                 connection.Open();
                 try
                 {
-                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, LoginID FROM tblLogin WHERE UserName = @Username AND PassWord = MD5(@Password)";
+                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, loginid FROM " + DatabaseConnection.UsersTable + " WHERE username = @Username AND PassWord = MD5(@Password)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtOldPassword.Text);
@@ -74,12 +74,12 @@ namespace POS_SYSTEM
                     
                     while (reader.Read())
                     {
-                        LoginID = Convert.ToInt32(reader["LoginID"]);
+                        loginid = Convert.ToInt32(reader["loginid"]);
                     }
                     reader.Close();
                     command.Dispose();
 
-                    if (LoginID == 0)
+                    if (loginid == 0)
                     {
                         MessageBox.Show("Old password is incorrect!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtOldPassword.ResetText();
@@ -87,7 +87,7 @@ namespace POS_SYSTEM
                     }
                     else
                     {
-                        string query2 = "UPDATE tbllogin SET password=MD5(@NewPW), isEnabled = 1, log_attempts = 0 WHERE username=@Username;";
+                        string query2 = "UPDATE " + DatabaseConnection.UsersTable + " SET password=MD5(@NewPW), isEnabled = 1, log_attempts = 0 WHERE username=@Username;";
                         command = new MySqlCommand(query2, connection);
                         command.Parameters.AddWithValue("@Username", txtUsername.Text);
                         command.Parameters.AddWithValue("@Password", txtOldPassword.Text);
