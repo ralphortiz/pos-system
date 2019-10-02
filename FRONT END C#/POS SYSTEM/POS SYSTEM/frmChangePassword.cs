@@ -16,9 +16,6 @@ namespace POS_SYSTEM
 
         MySqlDataReader reader;
         MySqlCommand command;
-        string connectionString;
-        private bool mouseDown;
-        private Point lastLocation;
 
         public static int LoginID = 0;
 
@@ -31,6 +28,7 @@ namespace POS_SYSTEM
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Password has not been changed", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             this.Close();
         }
 
@@ -41,7 +39,14 @@ namespace POS_SYSTEM
 
         private void submitPassword()
         {
-            if(txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.TextLength >= 8)
+            if (txtNewPassword.Text == txtOldPassword.Text)
+            {
+                MessageBox.Show("New password MUST NOT BE same with old password. \n Password must be more than 8 characters.", "Invalid New Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNewPassword.ResetText();
+                txtConfirmPassword.ResetText();
+                txtNewPassword.Focus();
+            }
+            else if (txtNewPassword.Text == txtConfirmPassword.Text && txtNewPassword.TextLength >= 8)
             {
                 openDB();
             }
@@ -56,8 +61,7 @@ namespace POS_SYSTEM
 
         private void openDB()
         {
-            connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
             {
                 connection.Open();
                 try

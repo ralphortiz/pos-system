@@ -21,7 +21,6 @@ namespace POS_SYSTEM
         public static string position = "";
         public static int LoginID;
         public static string unamez = "";
-        public static string connectionString;
 
 
         public frmLogin()
@@ -60,8 +59,7 @@ namespace POS_SYSTEM
         private void logIn()
         {
             unamez = txtUsername.Text;
-            connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
             {
                 connection.Open();
                 //cmd.Connection = connection;

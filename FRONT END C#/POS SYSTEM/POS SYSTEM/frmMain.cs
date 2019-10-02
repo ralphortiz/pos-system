@@ -19,9 +19,6 @@ namespace POS_SYSTEM
         int LoginID = frmLogin.LoginID;
         MySqlDataReader reader;
         MySqlCommand command;
-        string connectionString;
-        private bool mouseDown;
-        private Point lastLocation;
 
 
         string MilkTeaName;
@@ -38,6 +35,20 @@ namespace POS_SYSTEM
             openDB();
         }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            updateDisplay();
+            if( position.ToLower() == "developer" || position.ToLower() == "admin")
+            {
+                btnManProds.Visible = true;
+                btnManUsers.Visible = true;
+            }
+            else
+            {
+                btnManProds.Visible = false;
+                btnManUsers.Visible = false;
+            }
+        }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
@@ -51,16 +62,51 @@ namespace POS_SYSTEM
             this.Close();
             frmLogin.Show();
         }
-        private void btnExit_Click(object sender, EventArgs e)
+
+        private void btnWintermelon_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MilkTeaName = "Wintermelon";
+            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
+            frmMilkTea.ShowDialog();
+            updateDisplay();
+        }
+
+        private void btnOkinawa_Click(object sender, EventArgs e)
+        {
+            MilkTeaName = "Okinawa";
+            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
+            frmMilkTea.ShowDialog();
+            updateDisplay();
+        }
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                order = Convert.ToInt32(txtRemove.Text);
+                TransactionHistory.History.RemoveAt(order);
+                TransactionHistory.priceTotal.RemoveAt(order);
+                Transact.Total = TransactionHistory.priceTotal.Sum();
+
+                updateDisplay();
+            }
+            catch
+            {
+                MessageBox.Show("Please input an existing order");
+                txtRemove.ResetText();
+            }
+        }
+
+        private void btnManUsers_Click(object sender, EventArgs e)
+        {
+            frmUsersManager frmUsersManager = new frmUsersManager();
+            frmUsersManager.ShowDialog();
+
         }
 
 
         private void openDB()
         {
-            connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
             {
                 connection.Open();
                 try
@@ -97,34 +143,6 @@ namespace POS_SYSTEM
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-        private void btnWintermelon_Click(object sender, EventArgs e)
-        {
-            MilkTeaName = "Wintermelon";
-            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
-            frmMilkTea.ShowDialog();
-            updateDisplay();
-            //this.Hide();
-        }
-
-        private void btnOkinawa_Click(object sender, EventArgs e)
-        {
-            MilkTeaName = "Okinawa";
-            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
-            frmMilkTea.ShowDialog();
-            updateDisplay();
-            //this.Hide();
-        }
-
         private void updateDisplay()
         {
             txtDisplay.Clear();
@@ -133,48 +151,23 @@ namespace POS_SYSTEM
             {
                 txtDisplay.Text += "Order #: " + order + "\r\n\n" + TransactionHistory.History[order] + "\r\n\n";
             }
+
+            //computeTransaction();
+
+
             rtbTotalAmtDue.Text = Transact.Total.ToString();
             rtbVATable.Text = Transact.VATable.ToString();
             rtbVATAmount.Text = Transact.VatAmt.ToString();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                order = Convert.ToInt32(txtRemove.Text);
-                TransactionHistory.History.RemoveAt(order);
-                TransactionHistory.priceTotal.RemoveAt(order);
-                Transact.Total = TransactionHistory.priceTotal.Sum();
-
-                updateDisplay();
-            }
-            catch
-            {
-                MessageBox.Show("Please input an existing order");
-                txtRemove.Text = "";
-            }
-        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        #region Miscellaneous Methods
 
         // ----------------- Form Move Implementation  (Drag Form Body) ------------------
+
+        private bool mouseDown;
+        private Point lastLocation;
         private void form_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -196,23 +189,11 @@ namespace POS_SYSTEM
             this.Opacity = 1;
         }
 
-        private void btnManUsers_Click(object sender, EventArgs e)
-        {
-            frmUsersManager frmUsersManager = new frmUsersManager();
-            frmUsersManager.ShowDialog();
-            
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            updateDisplay();
-        }
-
         private void frmMain_Resize(object sender, EventArgs e)
         {
             //formResize();
         }
-        
+
 
 
         private void formResize()
@@ -230,7 +211,8 @@ namespace POS_SYSTEM
             txtEmpID.Location = new System.Drawing.Point(ClientSize.Width / 2, ClientSize.Height / 2);
         
               */
-        }
+        } 
+        #endregion
 
     }
 }

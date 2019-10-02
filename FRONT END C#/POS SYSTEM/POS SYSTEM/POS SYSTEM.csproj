@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="frmMilkTea.cs">
       <SubType>Form</SubType>
     </Compile>
