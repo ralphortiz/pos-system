@@ -22,14 +22,12 @@ namespace POS_SYSTEM
         public static int LoginID;
         public static string unamez = "";
         public static string connectionString;
-        private bool mouseDown;
-        private Point lastLocation;
 
 
         public frmLogin()
         {
             InitializeComponent();
-            txtUsername.Text = unamez;
+            txtUsername.Text = frmLogin.unamez;
             txtUsername.SelectAll();
         }
 
@@ -126,6 +124,9 @@ namespace POS_SYSTEM
 
 
         // ----------------- Form Move Implementation  (Drag Form Body) ------------------
+
+        private bool mouseDown;
+        private Point lastLocation;
         private void form_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;

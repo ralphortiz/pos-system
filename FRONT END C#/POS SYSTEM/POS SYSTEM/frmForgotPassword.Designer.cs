@@ -51,7 +51,7 @@
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(144, 58);
-            this.btnBack.TabIndex = 25;
+            this.btnBack.TabIndex = 5;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -67,7 +67,7 @@
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(144, 58);
-            this.btnSubmit.TabIndex = 24;
+            this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "RESET";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -103,7 +103,7 @@
             this.txtAnswer1.MaxLength = 20;
             this.txtAnswer1.Name = "txtAnswer1";
             this.txtAnswer1.Size = new System.Drawing.Size(215, 22);
-            this.txtAnswer1.TabIndex = 22;
+            this.txtAnswer1.TabIndex = 2;
             this.txtAnswer1.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtAnswer1.Enter += new System.EventHandler(this.txtBoxes_Enter);
             this.txtAnswer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
@@ -115,7 +115,7 @@
             this.txtUsername.MaxLength = 20;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(215, 22);
-            this.txtUsername.TabIndex = 21;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtUsername.Enter += new System.EventHandler(this.txtBoxes_Enter);
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
@@ -139,7 +139,7 @@
             this.txtAnswer2.MaxLength = 20;
             this.txtAnswer2.Name = "txtAnswer2";
             this.txtAnswer2.Size = new System.Drawing.Size(215, 22);
-            this.txtAnswer2.TabIndex = 23;
+            this.txtAnswer2.TabIndex = 3;
             this.txtAnswer2.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtAnswer2.Enter += new System.EventHandler(this.txtBoxes_Enter);
             this.txtAnswer2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);

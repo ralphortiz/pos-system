@@ -23,6 +23,11 @@ namespace POS_SYSTEM
         private bool mouseDown;
         private Point lastLocation;
 
+
+        string MilkTeaName;
+        MilkTea mt = new MilkTea();
+        int order;
+
         public frmMain()
         {
             InitializeComponent();
@@ -31,6 +36,13 @@ namespace POS_SYSTEM
             lblPosition.Text = frmLogin.position;
 
             openDB();
+        }
+
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frmChangePassword = new frmChangePassword();
+            frmChangePassword.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -85,11 +97,79 @@ namespace POS_SYSTEM
             }
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+        private void btnWintermelon_Click(object sender, EventArgs e)
         {
-            frmChangePassword frmChangePassword = new frmChangePassword();
-            frmChangePassword.ShowDialog();
+            MilkTeaName = "Wintermelon";
+            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
+            frmMilkTea.ShowDialog();
+            updateDisplay();
+            //this.Hide();
         }
+
+        private void btnOkinawa_Click(object sender, EventArgs e)
+        {
+            MilkTeaName = "Okinawa";
+            frmMilkTea frmMilkTea = new frmMilkTea(MilkTeaName);
+            frmMilkTea.ShowDialog();
+            updateDisplay();
+            //this.Hide();
+        }
+
+        private void updateDisplay()
+        {
+            txtDisplay.Clear();
+
+            for (order = 0; order < TransactionHistory.History.Count(); order++)
+            {
+                txtDisplay.Text += "Order #: " + order + "\r\n\n" + TransactionHistory.History[order] + "\r\n\n";
+            }
+            rtbTotalAmtDue.Text = Transact.Total.ToString();
+            rtbVATable.Text = Transact.VATable.ToString();
+            rtbVATAmount.Text = Transact.VatAmt.ToString();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                order = Convert.ToInt32(txtRemove.Text);
+                TransactionHistory.History.RemoveAt(order);
+                TransactionHistory.priceTotal.RemoveAt(order);
+                Transact.Total = TransactionHistory.priceTotal.Sum();
+
+                updateDisplay();
+            }
+            catch
+            {
+                MessageBox.Show("Please input an existing order");
+                txtRemove.Text = "";
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -108,14 +188,48 @@ namespace POS_SYSTEM
                 this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Opacity = 0.9;
                 this.Update();
-                this.FormBorderStyle = FormBorderStyle.Fixed3D;
             }
         }
         private void form_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
             this.Opacity = 1;
-            this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void btnManUsers_Click(object sender, EventArgs e)
+        {
+            frmUsersManager frmUsersManager = new frmUsersManager();
+            frmUsersManager.ShowDialog();
+            
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            updateDisplay();
+        }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+            //formResize();
+        }
+        
+
+
+        private void formResize()
+        {
+            //tabControl1.Size = new System.Drawing.Size(ClientSize.Width * 3 / 4, ClientSize.Height - 5);
+            /*grpVendoUI.Size = new System.Drawing.Size(ClientSize.Width * 4 / 5, 850);
+            grpVendoUI.Location = new System.Drawing.Point(ClientSize.Width / 2 - ((grpVendoUI.Size.Width) / 2), ClientSize.Height / 2 - ((grpVendoUI.Size.Height) / 2));
+            txtName.Size = new System.Drawing.Size(grpVendoUI.Size.Width - 4, 45);
+            txtCurrentCredit.Size = new System.Drawing.Size(grpVendoUI.Size.Width - lblCreditAmount.Size.Width, 45);
+            txtCurrentCredit.Location = new System.Drawing.Point(lblCreditAmount.Size.Width + 2, txtName.Location.Y + txtName.Size.Height + 5);
+            btnCash.Location = new System.Drawing.Point((grpVendoUI.Size.Width / 3) - (btnCash.Size.Width / 2) - (50), txtCurrentCredit.Location.Y + txtCurrentCredit.Size.Height + 15);
+            btnCredit.Location = new System.Drawing.Point((grpVendoUI.Size.Width * 2 / 3) - (btnCredit.Size.Width / 2) + (50), btnCash.Location.Y);
+            lblCoinsInserted.Location = new System.Drawing.Point((grpVendoUI.Size.Width / 2) - (lblCoinsInserted.Size.Width / 2), btnCredit.Location.Y + btnCredit.Size.Height + 15);
+            btnCancel.Location = new System.Drawing.Point(grpVendoUI.Size.Width / 2 - ((btnCancel.Size.Width) / 2), lblProduct10.Location.Y + lblProduct10.Size.Height + 15);
+            txtEmpID.Location = new System.Drawing.Point(ClientSize.Width / 2, ClientSize.Height / 2);
+        
+              */
         }
 
     }

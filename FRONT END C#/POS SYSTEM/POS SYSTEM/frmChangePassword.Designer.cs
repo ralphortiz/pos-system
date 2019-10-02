@@ -65,7 +65,7 @@
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '●';
             this.txtNewPassword.Size = new System.Drawing.Size(215, 22);
-            this.txtNewPassword.TabIndex = 34;
+            this.txtNewPassword.TabIndex = 3;
             this.txtNewPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtNewPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
             // 
@@ -91,7 +91,7 @@
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(144, 58);
-            this.btnBack.TabIndex = 38;
+            this.btnBack.TabIndex = 6;
             this.btnBack.Text = "BACK";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -107,7 +107,7 @@
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(144, 58);
-            this.btnSubmit.TabIndex = 36;
+            this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "UPDATE";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -168,7 +168,7 @@
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.PasswordChar = '●';
             this.txtOldPassword.Size = new System.Drawing.Size(215, 22);
-            this.txtOldPassword.TabIndex = 33;
+            this.txtOldPassword.TabIndex = 2;
             this.txtOldPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtOldPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
             // 
@@ -180,7 +180,7 @@
             this.txtUsername.MaxLength = 20;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(215, 22);
-            this.txtUsername.TabIndex = 32;
+            this.txtUsername.TabIndex = 1;
             // 
             // label7
             // 
@@ -204,7 +204,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '●';
             this.txtConfirmPassword.Size = new System.Drawing.Size(215, 22);
-            this.txtConfirmPassword.TabIndex = 43;
+            this.txtConfirmPassword.TabIndex = 4;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtConfirmPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
             // 

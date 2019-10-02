@@ -35,14 +35,8 @@ namespace POS_SYSTEM
             this.Close();
             frmLogin.Show();
         }
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            openForm();
-        }
-        // connect db
-        // stored procedure forgotpPW(txt,ans1,ans2,@msgx)
-        // @ 
-        // 
+
+
         private void openDB()
         {
             connectionString = @"server=localhost;database=logindb;uid=root;pwd=root";
@@ -94,8 +88,14 @@ namespace POS_SYSTEM
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             openDB();
+            frmLogin.unamez = this.txtUsername.Text;
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            openForm();
+            frmLogin.unamez = this.txtUsername.Text;
+        }
 
         private void form_KeyDown(object sender, KeyEventArgs e)
         {

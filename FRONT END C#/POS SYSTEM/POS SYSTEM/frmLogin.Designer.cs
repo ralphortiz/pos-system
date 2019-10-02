@@ -37,6 +37,7 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblForgotPassword = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -151,6 +152,16 @@
             this.lblForgotPassword.Text = "Forgot Password?";
             this.lblForgotPassword.Click += new System.EventHandler(this.lblForgotPassword_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(518, 245);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 17);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "v1.1";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -158,6 +169,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(565, 271);
             this.ControlBox = false;
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblForgotPassword);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
@@ -191,5 +203,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblForgotPassword;
+        private System.Windows.Forms.Label label5;
     }
 }
