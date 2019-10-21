@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbtnReg = new System.Windows.Forms.RadioButton();
-            this.rbtnLarge = new System.Windows.Forms.RadioButton();
+            this.radSize1 = new System.Windows.Forms.RadioButton();
+            this.radSize2 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.rbtn0P = new System.Windows.Forms.RadioButton();
             this.rbtn25P = new System.Windows.Forms.RadioButton();
@@ -53,6 +53,7 @@
             this.lblMilkTeaName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.radSize3 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,33 +83,35 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "SUGAR LEVEL:";
             // 
-            // rbtnReg
+            // radSize1
             // 
-            this.rbtnReg.AutoSize = true;
-            this.rbtnReg.Location = new System.Drawing.Point(17, 27);
-            this.rbtnReg.Margin = new System.Windows.Forms.Padding(4);
-            this.rbtnReg.Name = "rbtnReg";
-            this.rbtnReg.Size = new System.Drawing.Size(79, 21);
-            this.rbtnReg.TabIndex = 4;
-            this.rbtnReg.TabStop = true;
-            this.rbtnReg.Tag = "rb1";
-            this.rbtnReg.Text = "Regular";
-            this.rbtnReg.UseVisualStyleBackColor = true;
-            this.rbtnReg.CheckedChanged += new System.EventHandler(this.getSizePrice);
+            this.radSize1.AutoSize = true;
+            this.radSize1.Enabled = false;
+            this.radSize1.Location = new System.Drawing.Point(17, 27);
+            this.radSize1.Margin = new System.Windows.Forms.Padding(4);
+            this.radSize1.Name = "radSize1";
+            this.radSize1.Size = new System.Drawing.Size(63, 21);
+            this.radSize1.TabIndex = 4;
+            this.radSize1.TabStop = true;
+            this.radSize1.Tag = "rb1";
+            this.radSize1.Text = "Small";
+            this.radSize1.UseVisualStyleBackColor = true;
+            this.radSize1.CheckedChanged += new System.EventHandler(this.getSizePrice);
             // 
-            // rbtnLarge
+            // radSize2
             // 
-            this.rbtnLarge.AutoSize = true;
-            this.rbtnLarge.Location = new System.Drawing.Point(128, 27);
-            this.rbtnLarge.Margin = new System.Windows.Forms.Padding(4);
-            this.rbtnLarge.Name = "rbtnLarge";
-            this.rbtnLarge.Size = new System.Drawing.Size(66, 21);
-            this.rbtnLarge.TabIndex = 5;
-            this.rbtnLarge.TabStop = true;
-            this.rbtnLarge.Tag = "rb2";
-            this.rbtnLarge.Text = "Large";
-            this.rbtnLarge.UseVisualStyleBackColor = true;
-            this.rbtnLarge.CheckedChanged += new System.EventHandler(this.getSizePrice);
+            this.radSize2.AutoSize = true;
+            this.radSize2.Enabled = false;
+            this.radSize2.Location = new System.Drawing.Point(128, 27);
+            this.radSize2.Margin = new System.Windows.Forms.Padding(4);
+            this.radSize2.Name = "radSize2";
+            this.radSize2.Size = new System.Drawing.Size(78, 21);
+            this.radSize2.TabIndex = 5;
+            this.radSize2.TabStop = true;
+            this.radSize2.Tag = "rb2";
+            this.radSize2.Text = "Medium";
+            this.radSize2.UseVisualStyleBackColor = true;
+            this.radSize2.CheckedChanged += new System.EventHandler(this.getSizePrice);
             // 
             // label4
             // 
@@ -188,13 +191,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.rbtnLarge);
-            this.panel1.Controls.Add(this.rbtnReg);
+            this.panel1.Controls.Add(this.radSize3);
+            this.panel1.Controls.Add(this.radSize2);
+            this.panel1.Controls.Add(this.radSize1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 49);
+            this.panel1.Size = new System.Drawing.Size(334, 49);
             this.panel1.TabIndex = 71;
             // 
             // panel2
@@ -347,7 +351,7 @@
             // 
             this.lblMilkTeaName.AutoSize = true;
             this.lblMilkTeaName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMilkTeaName.Location = new System.Drawing.Point(119, 22);
+            this.lblMilkTeaName.Location = new System.Drawing.Point(4, 21);
             this.lblMilkTeaName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMilkTeaName.Name = "lblMilkTeaName";
             this.lblMilkTeaName.Size = new System.Drawing.Size(151, 20);
@@ -376,6 +380,20 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // radSize3
+            // 
+            this.radSize3.AutoSize = true;
+            this.radSize3.Enabled = false;
+            this.radSize3.Location = new System.Drawing.Point(247, 27);
+            this.radSize3.Margin = new System.Windows.Forms.Padding(4);
+            this.radSize3.Name = "radSize3";
+            this.radSize3.Size = new System.Drawing.Size(66, 21);
+            this.radSize3.TabIndex = 6;
+            this.radSize3.TabStop = true;
+            this.radSize3.Tag = "rb2";
+            this.radSize3.Text = "Large";
+            this.radSize3.UseVisualStyleBackColor = true;
+            // 
             // frmMilkTea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -394,6 +412,7 @@
             this.Name = "frmMilkTea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMilkTea";
+            this.Load += new System.EventHandler(this.frmMilkTea_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.form_MouseUp);
@@ -415,8 +434,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rbtnReg;
-        private System.Windows.Forms.RadioButton rbtnLarge;
+        private System.Windows.Forms.RadioButton radSize1;
+        private System.Windows.Forms.RadioButton radSize2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton rbtn0P;
         private System.Windows.Forms.RadioButton rbtn25P;
@@ -438,5 +457,6 @@
         private System.Windows.Forms.NumericUpDown numQuantity;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.RadioButton radSize3;
     }
 }

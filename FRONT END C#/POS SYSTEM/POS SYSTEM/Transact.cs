@@ -13,18 +13,16 @@ namespace POS_SYSTEM
         public static double Change { get; set; }
         public static double VATable { get; set; }
         public static double VatAmt { get; set; }
-        public static double ComputeVATable()
+
+        public static void isVATable(double price)
         {
-            return Total / 1.12;
+            VATable = Math.Ceiling((price / 1.12) * 100) / 100;
+            VatAmt = Math.Ceiling((VATable * 0.12) * 100) / 100;
         }
-        public static double ComputeVATAmt()
+        public static void isVATExempt(double price)
         {
-            return Total * 0.12;
+            VATable = 0;
+            VatAmt = 0;
         }
-        public static double ComputeChange()
-        {
-            return Cash - Total;
-        }
-    
     }
 }

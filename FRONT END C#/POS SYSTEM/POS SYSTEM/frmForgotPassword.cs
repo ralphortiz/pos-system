@@ -26,13 +26,6 @@ namespace POS_SYSTEM
             this.txtUsername.Text = frmLogin.unamez;
         }
 
-        private void openForm()
-        {
-            frmLogin frmLogin = new frmLogin();
-            this.Close();
-            frmLogin.Show();
-        }
-
 
         private void openDB()
         {
@@ -67,7 +60,7 @@ namespace POS_SYSTEM
                         txtAnswer1.ResetText();
                         txtAnswer2.ResetText();
                         uname = "";
-                        openForm();
+                        this.Close();
                     }
                     else
                     {
@@ -85,13 +78,12 @@ namespace POS_SYSTEM
         {
             openDB();
             frmLogin.unamez = this.txtUsername.Text;
-            System.Windows.Forms.Clipboard.SetText(password);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            openForm();
             frmLogin.unamez = this.txtUsername.Text;
+            this.Close();
         }
 
         private void form_KeyDown(object sender, KeyEventArgs e)

@@ -133,5 +133,13 @@ namespace POS_SYSTEM
             txtConfirmPassword.PasswordChar = '●';
         }
 
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                submitPassword();
+            }
+        }
+
     }
 }

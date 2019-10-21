@@ -30,3 +30,5 @@ C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmChangePassword.resources
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmUsersManager.resources
 C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmMilkTea.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmTransactionHistory.resources
+C:\Users\Hustino\Documents\GitHub\POS-SYSTEM\FRONT END C#\POS SYSTEM\POS SYSTEM\obj\Debug\POS_SYSTEM.frmProductsManager.resources

@@ -14,5 +14,6 @@ namespace POS_SYSTEM
         public static string UsersTable = "tblUsers";
         public static string ProductsTable = "tblProducts";
         public static string AddonsTable = "tblAddons";
+        public static string SalesTable = "tblsales";
     }
 }

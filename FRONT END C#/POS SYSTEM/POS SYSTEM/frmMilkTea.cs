@@ -18,34 +18,72 @@ namespace POS_SYSTEM
         CheckBox chk;
         RadioButton rb;
         double sinkers;
+        double Price1, Price2, Price3;
         double quantity = 0;
         public static string hist;
 
-        MySqlDataReader reader;
-        MySqlCommand command;
 
-
-        public frmMilkTea(string MilkTeaName)
+        public frmMilkTea(string MilkTeaName, double price1, double price2, double price3)
         {
             InitializeComponent();
             Milktea.MilkteaName = MilkTeaName;
+            Price1 = price1;
+            Price2 = price2;
+            Price3 = price3;
             lblMilkTeaName.Text = Milktea.MilkteaName;
             numQuantity.Text = quantity.ToString();
             rbtn100P.Checked = true;
         }
+
+        private void frmMilkTea_Load(object sender, EventArgs e)
+        {
+            if (Price1 > 0)
+            {
+                radSize1.Enabled = true;
+            }
+            else { }
+            if (Price2 > 0)
+            {
+                radSize2.Enabled = true;
+            }
+            else { }
+            if (Price3 > 0)
+            {
+                radSize3.Enabled = true;
+            }
+            else { }
+            formResize();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Milktea.Quantity = Convert.ToDouble(numQuantity.Value);
+            Milktea.ComputePrice();
+            TransactionHistory.priceTotal.Add(Milktea.MilkteaPrice);
+            Transact.Total = TransactionHistory.priceTotal.Sum();
+            Transact.isVATable(Transact.Total);
+            hist = "Milktea: " + Milktea.MilkteaName + "\r\n" + "Size: " + Milktea.Size + "\r\n" + "Sugar Level: " + Milktea.SugarLevel + "\r\n" + "Add-ons: " + Milktea.Sinkers + "\r\n" + "Price: " + Milktea.MilkteaPrice.ToString() + "\r\n";
+            TransactionHistory.History.Add(hist);
+            this.Close();
+        }
+
+
 
         private void getSizePrice(object sender, EventArgs e)
         {
             rb = sender as RadioButton;
             if (rb.Text == "Regular")
             {
-                Milktea.SizePrice = 69;
-
+                Milktea.SizePrice = Price1;
             }
             else if (rb.Text == "Large")
             {
-                Milktea.SizePrice = 79;
-
+                Milktea.SizePrice = Price2;
             }
             Milktea.Size = rb.Text;
         }
@@ -101,58 +139,7 @@ namespace POS_SYSTEM
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Milktea.Quantity = Convert.ToDouble(numQuantity.Value);
-            Milktea.ComputePrice();
-            TransactionHistory.priceTotal.Add(Milktea.MilkteaPrice);
-            Transact.Total = TransactionHistory.priceTotal.Sum();
-            hist = "Milktea: " + Milktea.MilkteaName + "\r\n" + "Size: " + Milktea.Size + "\r\n" + "Sugar Level: " + Milktea.SugarLevel + "\r\n" + "Add-ons: " + Milktea.Sinkers + "\r\n" + "Price: " + Milktea.MilkteaPrice.ToString() + "\r\n";
-            TransactionHistory.History.Add(hist);
-            this.Close();
-        }
-
-
-        /*
-        private void openDB()
-        {
-            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.connectionString))
-            {
-                connection.Open();
-                try
-                {
-                    //string query = "SELECT name, size, price, isMilkTea, isMilkShake, isFrappe FROM " + DatabaseConnection.ProductsTable + " WHERE isAvailable = 1";
-                    //command = new MySqlCommand(query, connection);
-                    //reader = command.ExecuteReader();
-
-                    //while (reader.Read())
-                    //{
-                    //    password = reader["password"].ToString();
-                    //    hashedTempo = reader["hashedTempo"].ToString();
-                    //}
-
-                    //reader.Close();
-                    //command.Dispose();
-
-                    //if (password == hashedTempo)
-                    //{
-                    //    MessageBox.Show("It seems you haven't changed your password yet. Please change your password first.", "Temporary Password Detected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    frmChangePassword frmChangePassword = new frmChangePassword();
-                    //    frmChangePassword.ShowDialog();
-
-                    //}
-                    //else
-                    //{
-                    //}
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }*/
-
-
+        #region Misc Methods
 
         // ----------------- Form Move Implementation  (Drag Form Body) ------------------
 
@@ -179,9 +166,23 @@ namespace POS_SYSTEM
             this.Opacity = 1;
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void formResize()
         {
-            this.Close();
-        }
+            lblMilkTeaName.Location = new System.Drawing.Point(ClientSize.Width / 2 - (lblMilkTeaName.Size.Width / 2), lblMilkTeaName.Location.Y);
+            //tabControl1.Size = new System.Drawing.Size(ClientSize.Width * 3 / 4, ClientSize.Height - 5);
+            /*grpVendoUI.Size = new System.Drawing.Size(ClientSize.Width * 4 / 5, 850);
+            grpVendoUI.Location = new System.Drawing.Point(ClientSize.Width / 2 - ((grpVendoUI.Size.Width) / 2), ClientSize.Height / 2 - ((grpVendoUI.Size.Height) / 2));
+            txtName.Size = new System.Drawing.Size(grpVendoUI.Size.Width - 4, 45);
+            txtCurrentCredit.Size = new System.Drawing.Size(grpVendoUI.Size.Width - lblCreditAmount.Size.Width, 45);
+            txtCurrentCredit.Location = new System.Drawing.Point(lblCreditAmount.Size.Width + 2, txtName.Location.Y + txtName.Size.Height + 5);
+            btnCash.Location = new System.Drawing.Point((grpVendoUI.Size.Width / 3) - (btnCash.Size.Width / 2) - (50), txtCurrentCredit.Location.Y + txtCurrentCredit.Size.Height + 15);
+            btnCredit.Location = new System.Drawing.Point((grpVendoUI.Size.Width * 2 / 3) - (btnCredit.Size.Width / 2) + (50), btnCash.Location.Y);
+            lblCoinsInserted.Location = new System.Drawing.Point((grpVendoUI.Size.Width / 2) - (lblCoinsInserted.Size.Width / 2), btnCredit.Location.Y + btnCredit.Size.Height + 15);
+            btnCancel.Location = new System.Drawing.Point(grpVendoUI.Size.Width / 2 - ((btnCancel.Size.Width) / 2), lblProduct10.Location.Y + lblProduct10.Size.Height + 15);
+            txtEmpID.Location = new System.Drawing.Point(ClientSize.Width / 2, ClientSize.Height / 2);
+        
+              */
+        }  
+        #endregion
     }
 }

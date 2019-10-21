@@ -20,6 +20,7 @@ namespace POS_SYSTEM
         public static string user = "";
         public static string position = "";
         public static int loginid;
+        private int isEnabled;
         public static string unamez = "";
 
 
@@ -27,7 +28,6 @@ namespace POS_SYSTEM
         {
             InitializeComponent();
             txtUsername.Text = frmLogin.unamez;
-            txtUsername.SelectAll();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace POS_SYSTEM
                 connection.Open();
                 try
                 {
-                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, loginid FROM "+ DatabaseConnection.UsersTable + " WHERE username = @Username AND PassWord = MD5(@Password)";
+                    string query = "SELECT CONCAT(FirstName,' ',LastName) AS FullName, Position, loginid, isEnabled FROM " + DatabaseConnection.UsersTable + " WHERE username = @Username AND PassWord = MD5(@Password)";
                     command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtPassword.Text);
@@ -75,6 +75,8 @@ namespace POS_SYSTEM
                         user = reader["FullName"].ToString();
                         position = reader["Position"].ToString().ToUpper();
                         loginid = Convert.ToInt32(reader["loginid"]);
+                        loginid = Convert.ToInt32(reader["loginid"]);
+                        isEnabled = Convert.ToInt32(reader["isEnabled"]);
                     }
                     reader.Close();
                     command.Dispose();
@@ -84,6 +86,18 @@ namespace POS_SYSTEM
                     if (user == "")
                     {
                         MessageBox.Show("Invalid login details", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPassword.Text = "";
+                        txtUsername.Focus();
+
+                        string queryinvalid = "call invalidLogin(@Username);";
+                        command = new MySqlCommand(queryinvalid, connection);
+                        command.Parameters.AddWithValue("@Username", txtUsername.Text);
+                        reader = command.ExecuteReader();
+                        command.Dispose();
+                    }
+                    else if (isEnabled == 0)
+                    {
+                        MessageBox.Show("Your account is deactivated. Sad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPassword.Text = "";
                         txtUsername.Focus();
                     }
@@ -99,6 +113,7 @@ namespace POS_SYSTEM
                 {
                     MessageBox.Show(ex.ToString());
                 }
+                connection.Close();
             }
         }
 
@@ -107,7 +122,8 @@ namespace POS_SYSTEM
             unamez = this.txtUsername.Text;
             frmForgotPassword frmForgotPassword = new frmForgotPassword();
             this.Hide();
-            frmForgotPassword.Show();
+            frmForgotPassword.ShowDialog();
+            this.Show();
         }
 
 

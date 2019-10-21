@@ -69,6 +69,7 @@
             this.txtNewPassword.TabIndex = 3;
             this.txtNewPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtNewPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
+            this.txtNewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // label5
             // 
@@ -172,6 +173,7 @@
             this.txtOldPassword.TabIndex = 2;
             this.txtOldPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtOldPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
+            this.txtOldPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // txtUsername
             // 
@@ -182,6 +184,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(278, 22);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // label7
             // 
@@ -208,6 +211,7 @@
             this.txtConfirmPassword.TabIndex = 4;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtBoxes_TextChanged);
             this.txtConfirmPassword.Enter += new System.EventHandler(this.txtBoxes_Enter);
+            this.txtConfirmPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // label8
             // 
