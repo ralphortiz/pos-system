@@ -14,5 +14,6 @@ A simple POS system that can process and take orders, print receipt, enable prod
 # Developer
 * **Justine Laserna** - https://github.com/hstnLaserna
 * **Ralph Ortiz** - https://github.com/rfchrtzkr
+* **Matthew Vasquez** - https://github.com/matt2315
 
 
