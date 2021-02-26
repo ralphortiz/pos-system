@@ -1,5 +1,6 @@
-# POS SYSTEM
- SAD Final Projects
+# POS SYSTEM (SAD Project)
+A simple POS system that can process and take orders, print receipt, enable product/user management and display a graphical representations of total sales.
+
 
 # Screens 
 | **Screen**                                 | **Sample**                                                                                                                      |
