@@ -12,8 +12,8 @@ A simple POS system that can process and take orders, print receipt, enable prod
 | Transaction History Form                   | <img src="https://user-images.githubusercontent.com/42314281/109293605-fce81e80-7866-11eb-94f6-487622ca1787.png" height="260"/> |
 
 # Developer
-* **Justine Laserna** - https://github.com/hstnLaserna
-* **Ralph Ortiz** - https://github.com/rfchrtzkr
-* **Matthew Vasquez** - https://github.com/matt2315
+* **Justine Laserna** - github.com/hstnLaserna
+* **Ralph Ortiz** - github.com/rfchrtzkr
+* **Matthew Vasquez** - github.com/matt2315
 
 
